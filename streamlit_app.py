@@ -50,6 +50,7 @@ INITIAL_ASSISTANT_MESSAGE = {
 #         "Bạn có thể giúp tôi được không?"
 #     ),
 # }
+#123
 
 # Tạo một biến trạng thái session để lưu trữ các tin nhắn nếu chưa tồn tại.
 if "messages" not in st.session_state:
