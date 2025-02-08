@@ -103,19 +103,20 @@ for message in st.session_state.messages:
 user_name = st.session_state.get("customer_name", "Bạn")
 
 if prompt := st.chat_input(f"{user_name} nhập nội dung cần trao đổi ở đây nhé."):
+
     # Lưu trữ tin nhắn của người dùng
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
 
-    # Tạo phản hồi từ OpenAI
+    # Gửi yêu cầu đến OpenAI API
     response = client.chat.completions.create(
         model=rfile("module_chatgpt.txt").strip(),
         messages=[{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
     )
 
-    # Lấy nội dung phản hồi từ API
-    response_text = response.choices[0].text.strip()
+    # Lấy nội dung phản hồi từ API (Cấu trúc chuẩn OpenAI)
+    response_text = response.choices[0].message.content.strip()
 
     # Hiển thị phản hồi chatbot
     with st.chat_message("assistant"):
@@ -123,4 +124,3 @@ if prompt := st.chat_input(f"{user_name} nhập nội dung cần trao đổi ở
 
     # Lưu phản hồi vào session
     st.session_state.messages.append({"role": "assistant", "content": response_text})
-
