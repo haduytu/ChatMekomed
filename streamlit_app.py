@@ -101,6 +101,14 @@ for message in st.session_state.messages:
             st.markdown(message["content"])
 
 user_name = st.session_state.get("customer_name", "Bạn")
+INITIAL_SYSTEM_MESSAGE = {
+    "role": "system",
+    "content": f"""
+    Trong suốt cuộc trò chuyện, hãy gọi khách hàng là '{user_name}' thay vì 'Bạn'. 
+    Nếu khách hàng hỏi về dịch vụ, hãy trả lời một cách chuyên nghiệp và thân thiện. 
+    Luôn ưu tiên cách xưng hô phù hợp, ví dụ: 'Bác Mai', 'Anh Nam' thay vì 'Bạn'.
+    """,
+}
 
 if prompt := st.chat_input(f"{user_name} nhập nội dung cần trao đổi ở đây nhé."):
 
@@ -116,11 +124,12 @@ if prompt := st.chat_input(f"{user_name} nhập nội dung cần trao đổi ở
     )
 
     # Lấy nội dung phản hồi từ API (Cấu trúc chuẩn OpenAI)
-    response_text = response.choices[0].message.content.strip()
+response_text = response.choices[0].message.content.strip()
+response_text = response_text.replace("Bạn", user_name)  # Thay thế "Bạn" bằng tên khách hàng
 
-    # Hiển thị phản hồi chatbot
-    with st.chat_message("assistant"):
-        st.markdown(response_text)
+# Hiển thị phản hồi chatbot
+with st.chat_message("assistant"):
+    st.markdown(response_text)
 
-    # Lưu phản hồi vào session
-    st.session_state.messages.append({"role": "assistant", "content": response_text})
+# Lưu phản hồi vào session
+st.session_state.messages.append({"role": "assistant", "content": response_text})
