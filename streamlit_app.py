@@ -1,17 +1,6 @@
 import streamlit as st
 from openai import OpenAI
 
-# Ẩn các phần tử có thể chứa logo Streamlit
-st.markdown(
-    """
-    <style>
-    footer { visibility: hidden !important; }
-    [data-testid="stFooter"] { display: none !important; }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
-
 def rfile(name_file):
  with open(name_file, "r", encoding="utf-8") as file:
     content_sys = file.read()
