@@ -64,7 +64,7 @@ INITIAL_ASSISTANT_MESSAGE = {
 # INITIAL_USER_MESSAGE = {
 #     "role": "user",
 #     "content": (
-#         "Xin chào trợ lý Anh Lập Trình ! Tôi muốn tìm hiểu thêm về cách sử dụng dịch vụ của bạn. "
+#         "Xin chào ChatMekomed ! Tôi muốn tìm hiểu thêm về cách sử dụng dịch vụ của bạn. "
 #         "Bạn có thể giúp tôi được không?"
 #     ),
 # }
@@ -80,7 +80,7 @@ for message in st.session_state.messages:
             st.markdown(message["content"])
 
 # Tạo ô nhập liệu cho người dùng.
-if prompt := st.chat_input("Bạn nhập nội dung cần trao đổi ở đây nhé?"):
+if prompt := st.chat_input("Bạn nhập nội dung cần trao đổi ở đây nhé."):
 
     # Lưu trữ và hiển thị tin nhắn của người dùng.
     st.session_state.messages.append({"role": "user", "content": prompt})
