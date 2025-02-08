@@ -32,7 +32,7 @@ st.markdown(
 
 # Đọc file danh sách khách hàng
 try:
-    df_kh = pd.read_excel('khach_hang.xlsx', engine='openpyxl')
+    df_kh = pd.read_excel('data/khach_hang.xlsx', engine='openpyxl')
     df_kh.columns = df_kh.columns.str.strip()
     df_kh['MaKH'] = df_kh['MaKH'].astype(str)
 except Exception as e:
