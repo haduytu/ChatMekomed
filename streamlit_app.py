@@ -1,13 +1,12 @@
 import streamlit as st
 from openai import OpenAI
 
-# Ẩn footer chứa logo của Streamlit dựa vào data-testid
+# Ẩn các phần tử có thể chứa logo Streamlit
 st.markdown(
     """
     <style>
-    [data-testid="stFooter"] {
-        display: none !important;
-    }
+    footer { visibility: hidden !important; }
+    [data-testid="stFooter"] { display: none !important; }
     </style>
     """,
     unsafe_allow_html=True,
