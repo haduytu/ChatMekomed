@@ -119,17 +119,19 @@ if prompt := st.chat_input(f"{user_name} nhập nội dung cần trao đổi ở
 
     # Gửi yêu cầu đến OpenAI API
     response = client.chat.completions.create(
-        model=rfile("module_chatgpt.txt").strip(),
+        model="gpt-3.5-turbo",
         messages=[{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
     )
 
-    # Lấy nội dung phản hồi từ API (Cấu trúc chuẩn OpenAI)
-response_text = response.choices[0].message.content.strip()
-response_text = response_text.replace("Bạn", user_name)  # Thay thế "Bạn" bằng tên khách hàng
+    # Kiểm tra nếu response có tồn tại
+    if response and response.choices:
+        response_text = response.choices[0].message.content.strip()
+    else:
+        response_text = "Xin lỗi, tôi không thể tạo phản hồi ngay bây giờ."
 
-# Hiển thị phản hồi chatbot
-with st.chat_message("assistant"):
-    st.markdown(response_text)
+    # Hiển thị phản hồi chatbot
+    with st.chat_message("assistant"):
+        st.markdown(response_text)
 
-# Lưu phản hồi vào session
-st.session_state.messages.append({"role": "assistant", "content": response_text})
+    # Lưu phản hồi vào session
+    st.session_state.messages.append({"role": "assistant", "content": response_text})
