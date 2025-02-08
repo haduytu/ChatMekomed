@@ -1,3 +1,8 @@
+import sys
+import openpyxl
+st.write(f"Python version: {sys.version}")
+st.write(f"OpenPyXL version: {openpyxl.__version__}")
+
 import streamlit as st
 from openai import OpenAI
 import pandas as pd
