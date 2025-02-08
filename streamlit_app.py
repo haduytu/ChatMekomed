@@ -1,6 +1,14 @@
 import streamlit as st
 from openai import OpenAI
 
+# Ẩn footer chứa logo của Streamlit
+hide_footer_style = """
+    <style>
+    footer {visibility: hidden !important;}
+    </style>
+    """
+st.markdown(hide_footer_style, unsafe_allow_html=True)
+
 def rfile(name_file):
  with open(name_file, "r", encoding="utf-8") as file:
     content_sys = file.read()
