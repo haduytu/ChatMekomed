@@ -33,7 +33,7 @@ st.markdown(
 
 # Đọc file danh sách khách hàng (ví dụ: khach_hang.csv nằm cùng thư mục hoặc trong thư mục con 'data')
 try:
-    df_kh = pd.read_csv('data/khach_hang.csv', encoding='utf-8')
+    df_kh = pd.read_csv('data/khach_hang.xlsx', encoding='utf-8')
 except Exception as e:
     st.error("Không thể đọc file danh sách khách hàng: " + str(e))
     df_kh = pd.DataFrame()  # Nếu không đọc được file thì tạo DataFrame rỗng
