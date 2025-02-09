@@ -118,23 +118,25 @@ if prompt := st.chat_input(f"{user_name} nhập nội dung cần trao đổi ở
         st.markdown(prompt)
 
     # Gửi yêu cầu đến OpenAI API
-    if not st.session_state.messages or not isinstance(st.session_state.messages, list): #đoạn kiểm tra trước khi gửi API
-        st.error("Lỗi: Danh sách tin nhắn không hợp lệ.")  # Hiển thị lỗi
-        st.stop()  # Dừng chương trình nếu dữ liệu không hợp lệ
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
-    )
+if not st.session_state.messages or not isinstance(st.session_state.messages, list):
+    st.error("Lỗi: Danh sách tin nhắn không hợp lệ.")
+    st.stop()  # Dừng chương trình nếu dữ liệu không hợp lệ
 
-    # Kiểm tra nếu response có tồn tại
-    if response and response.choices:
-        response_text = response.choices[0].message.content.strip()
-    else:
-        response_text = "Xin lỗi, tôi không thể tạo phản hồi ngay bây giờ."
+# Debug: Kiểm tra nội dung tin nhắn trước khi gửi API
+st.write("Debug Messages:", st.session_state.messages)
 
-    # Hiển thị phản hồi chatbot
-    with st.chat_message("assistant"):
-        st.markdown(response_text)
+# Gửi yêu cầu đến OpenAI API
+response = client.chat.completions.create(
+    model="gpt-3.5-turbo",
+    messages=st.session_state.messages
+)
 
-    # Lưu phản hồi vào session
-    st.session_state.messages.append({"role": "assistant", "content": response_text})
+# Lấy nội dung phản hồi từ API
+response_text = response.choices[0].message.content.strip()
+
+# Hiển thị phản hồi chatbot
+with st.chat_message("assistant"):
+    st.markdown(response_text)
+
+# Lưu phản hồi vào session
+st.session_state.messages.append({"role": "assistant", "content": response_text})
