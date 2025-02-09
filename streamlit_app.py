@@ -118,6 +118,9 @@ if prompt := st.chat_input(f"{user_name} nhập nội dung cần trao đổi ở
         st.markdown(prompt)
 
     # Gửi yêu cầu đến OpenAI API
+    if not st.session_state.messages or not isinstance(st.session_state.messages, list): #đoạn kiểm tra trước khi gửi API
+    st.error("Lỗi: Danh sách tin nhắn không hợp lệ.")
+    st.stop()
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
