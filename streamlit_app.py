@@ -52,7 +52,7 @@ customer = df_kh[df_kh['MaKH'] == ma_kh.strip()]
     #if customer.empty:
     #    return "Bạn"
     
-    if not customer.empty: #Mới thêm
+if not customer.empty: 
     customer = customer.iloc[0]
     ho_ten = customer['HoTen'].strip()
     gioi_tinh = customer['GioiTinh'].strip().lower()
