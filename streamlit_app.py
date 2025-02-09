@@ -92,8 +92,11 @@ INITIAL_ASSISTANT_MESSAGE = {
     "content": rfile("02.assistant.txt"),
 }
 
-if "messages" not in st.session_state:
-    st.session_state.messages = [INITIAL_SYSTEM_MESSAGE, INITIAL_ASSISTANT_MESSAGE]
+if "messages" not in st.session_state or not st.session_state.messages:
+    st.session_state.messages = [
+        {"role": "system", "content": INITIAL_SYSTEM_MESSAGE["content"]},
+        {"role": "assistant", "content": INITIAL_ASSISTANT_MESSAGE["content"]}
+    ]
 
 for message in st.session_state.messages:
     if message["role"] != "system":
@@ -101,46 +104,33 @@ for message in st.session_state.messages:
             st.markdown(message["content"])
 
 user_name = st.session_state.get("customer_name", "Bạn")
-INITIAL_SYSTEM_MESSAGE = {
-    "role": "system",
-    "content": f"""
-    Trong suốt cuộc trò chuyện, hãy gọi khách hàng là '{user_name}' thay vì 'Bạn'. 
-    Nếu khách hàng hỏi về dịch vụ, hãy trả lời một cách chuyên nghiệp và thân thiện. 
-    Luôn ưu tiên cách xưng hô phù hợp, ví dụ: 'Bác Mai', 'Anh Nam' thay vì 'Bạn'.
-    """,
-}
 
 if prompt := st.chat_input(f"{user_name} nhập nội dung cần trao đổi ở đây nhé."):
-
     # Lưu trữ tin nhắn của người dùng
     st.session_state.messages.append({"role": "user", "content": prompt})
     with st.chat_message("user"):
         st.markdown(prompt)
-
+    
+    # Kiểm tra danh sách tin nhắn trước khi gửi API
+    if not st.session_state.messages or not isinstance(st.session_state.messages, list):
+        st.error("Lỗi: Danh sách tin nhắn không hợp lệ.")
+        st.stop()  # Dừng chương trình nếu dữ liệu không hợp lệ
+    
     # Gửi yêu cầu đến OpenAI API
-if not st.session_state.messages or not isinstance(st.session_state.messages, list):
-    st.error("Lỗi: Danh sách tin nhắn không hợp lệ.")
-    st.stop()  # Dừng chương trình nếu dữ liệu không hợp lệ
-
-# Debug: Kiểm tra nội dung tin nhắn trước khi gửi API
-st.write("Debug Messages:", st.session_state.messages)
-
-# Gửi yêu cầu đến OpenAI API
-response = client.chat.completions.create(
-    model="gpt-3.5-turbo",
-    messages=[
-        #{"role": "system", "content": system_prompt},  # Nội dung huấn luyện chatbot
-        *st.session_state.messages  # Danh sách tin nhắn từ người dùng và chatbot
-    ]
-)
-
-
-# Lấy nội dung phản hồi từ API
-response_text = response.choices[0].message.content.strip()
-
-# Hiển thị phản hồi chatbot
-with st.chat_message("assistant"):
-    st.markdown(response_text)
-
-# Lưu phản hồi vào session
-st.session_state.messages.append({"role": "assistant", "content": response_text})
+    response = client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": INITIAL_SYSTEM_MESSAGE["content"]},
+            *st.session_state.messages
+        ]
+    )
+    
+    # Lấy nội dung phản hồi từ API
+    response_text = response.choices[0].message.content.strip()
+    
+    # Hiển thị phản hồi chatbot
+    with st.chat_message("assistant"):
+        st.markdown(response_text)
+    
+    # Lưu phản hồi vào session
+    st.session_state.messages.append({"role": "assistant", "content": response_text})
