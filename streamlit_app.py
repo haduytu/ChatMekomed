@@ -1,11 +1,12 @@
 import streamlit as st
 import sys
 import openpyxl
-st.write(f"Python version: {sys.version}")
-st.write(f"OpenPyXL version: {openpyxl.__version__}")
 from openai import OpenAI
 import pandas as pd
 from datetime import datetime
+
+st.write(f"Python version: {sys.version}")
+st.write(f"OpenPyXL version: {openpyxl.__version__}")
 
 def rfile(name_file):
     with open(name_file, "r", encoding="utf-8") as file:
@@ -17,7 +18,7 @@ try:
     col1, col2, col3 = st.columns([3, 2, 3])
     with col2:
         st.image("logo.png", use_container_width=True)
-except Exception as e:
+except Exception:
     pass
 
 # Tùy chỉnh nội dung tiêu đề
@@ -112,22 +113,15 @@ if prompt := st.chat_input(f"{user_name} nhập nội dung cần trao đổi ở
         st.markdown(prompt)
     
     # Kiểm tra danh sách tin nhắn trước khi gửi API
-    if not st.session_state.messages or not isinstance(st.session_state.messages, list) or len(st.session_state.messages) == 0:
-        st.error("Lỗi: Không có tin nhắn nào hợp lệ để gửi OpenAI.")
-        st.stop()
+    if len(st.session_state.messages) > 20:  # Giới hạn số lượng tin nhắn để tránh lỗi
+        st.session_state.messages = st.session_state.messages[-20:]
     
-    for msg in st.session_state.messages:
-        if "role" not in msg or "content" not in msg:
-            st.error(f"Lỗi: Tin nhắn không hợp lệ {msg}")
-            st.stop()
-    
-    # Debug: Kiểm tra trước khi gửi API
-    st.write("Sending Messages to OpenAI:", st.session_state.messages)
-    
+    # Gửi yêu cầu đến OpenAI API
     try:
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",
-            messages=st.session_state.messages
+            messages=st.session_state.messages,
+            max_tokens=1000  # Giới hạn số lượng token để tránh lỗi quá tải
         )
         response_text = response.choices[0].message.content.strip()
     except Exception as e:
