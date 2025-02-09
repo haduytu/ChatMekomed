@@ -59,9 +59,9 @@ def get_customer_title(ma_kh):
     if tuoi < 18:
         return f"Em {ten_goi}"
     if gioi_tinh == 'nam':
-        danh_xung = "Bác" if tuoi >= 50 else "Anh"
+        danh_xung = "Bác" if tuoi >= 60 else "Anh"
     elif gioi_tinh == 'nữ':
-        danh_xung = "Cô" if tuoi >= 50 else "Chị"
+        danh_xung = "Cô" if tuoi >= 55 else "Chị"
     else:
         danh_xung = ""
     
@@ -82,9 +82,15 @@ openai_api_key = st.secrets.get("OPENAI_API_KEY")
 # Tạo OpenAI client.
 client = OpenAI(api_key=openai_api_key)
 
+user_name = st.session_state.get("customer_name", "Bạn")
+
 INITIAL_SYSTEM_MESSAGE = {
     "role": "system",
-    "content": rfile("01.system_trainning.txt"),
+    "content": f"""
+    {rfile("01.system_trainning.txt")}
+    
+    📌 Trong cuộc trò chuyện này, khách hàng tên là {user_name}. Hãy luôn xưng hô với họ theo quy tắc trên.
+    """,
 }
 
 INITIAL_ASSISTANT_MESSAGE = {
