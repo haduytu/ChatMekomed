@@ -42,11 +42,17 @@ except Exception as e:
 def get_customer_title(ma_kh):
     if not ma_kh or pd.isna(ma_kh):
         return "Bạn"
+
+# Thiết lập giá trị mặc định mới thêm
+ho_ten, gioi_tinh, tuoi = "khách hàng", "không rõ", "không rõ" #Mới thêm
+
+# Trích xuất thông tin nếu MaKH hợp lệ
     
-    customer = df_kh[df_kh['MaKH'] == ma_kh.strip()]
-    if customer.empty:
-        return "Bạn"
+customer = df_kh[df_kh['MaKH'] == ma_kh.strip()]
+    #if customer.empty:
+    #    return "Bạn"
     
+    if not customer.empty: #Mới thêm
     customer = customer.iloc[0]
     ho_ten = customer['HoTen'].strip()
     gioi_tinh = customer['GioiTinh'].strip().lower()
@@ -55,6 +61,8 @@ def get_customer_title(ma_kh):
     current_year = datetime.now().year
     tuoi = current_year - nam_sinh
     ten_goi = ho_ten.split()[-1]
+    
+    
     
     if tuoi < 18:
         return f"Em {ten_goi}"
@@ -97,7 +105,6 @@ INITIAL_SYSTEM_MESSAGE = {
     Hãy sử dụng cách xưng hô phù hợp dựa trên thông tin khách hàng. Nếu không có đủ thông tin, hãy gọi là 'Bạn'.
     """,
 }
-
 
 INITIAL_ASSISTANT_MESSAGE = {
     "role": "assistant",
