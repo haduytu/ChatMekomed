@@ -24,7 +24,12 @@ except Exception:
 # Tùy chỉnh nội dung tiêu đề
 title_content = rfile("00.xinchao.txt")
 
-
+st.markdown(
+    f"""
+    <h1 style="text-align: center; font-size: 24px;">{title_content}</h1>
+    """,
+    unsafe_allow_html=True
+)
 
 # Đọc file danh sách khách hàng
 try:
