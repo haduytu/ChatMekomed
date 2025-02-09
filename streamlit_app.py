@@ -43,16 +43,14 @@ def get_customer_title(ma_kh):
     if not ma_kh or pd.isna(ma_kh):
         return "Bạn"
 
-# Thiết lập giá trị mặc định mới thêm
-ho_ten, gioi_tinh, tuoi = "khách hàng", "không rõ", "không rõ" #Mới thêm
 
 # Trích xuất thông tin nếu MaKH hợp lệ
     
 customer = df_kh[df_kh['MaKH'] == ma_kh.strip()]
-    #if customer.empty:
-    #    return "Bạn"
+    if customer.empty:
+        return "Bạn"
     
-if not customer.empty: 
+    
     customer = customer.iloc[0]
     ho_ten = customer['HoTen'].strip()
     gioi_tinh = customer['GioiTinh'].strip().lower()
@@ -97,13 +95,8 @@ INITIAL_SYSTEM_MESSAGE = {
     "content": f"""
     {rfile("01.system_trainning.txt")}
     
-    📌 Thông tin khách hàng:
-    - Họ tên: {ho_ten}
-    - Giới tính: {gioi_tinh}
-    - Tuổi: {tuoi}
-
-    Hãy sử dụng cách xưng hô phù hợp dựa trên thông tin khách hàng. Nếu không có đủ thông tin, hãy gọi là 'Bạn'.
-    """,
+    #📌 Trong cuộc trò chuyện này, khách hàng tên là {user_name}. Hãy luôn xưng hô với họ theo quy tắc trên.
+    #""",
 }
 
 INITIAL_ASSISTANT_MESSAGE = {
