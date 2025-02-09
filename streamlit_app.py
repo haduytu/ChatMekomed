@@ -129,7 +129,7 @@ st.write("Debug Messages:", st.session_state.messages)
 response = client.chat.completions.create(
     model="gpt-3.5-turbo",
     messages=[
-        {"role": "system", "content": system_prompt},  # Nội dung huấn luyện chatbot
+        #{"role": "system", "content": system_prompt},  # Nội dung huấn luyện chatbot
         *st.session_state.messages  # Danh sách tin nhắn từ người dùng và chatbot
     ]
 )
