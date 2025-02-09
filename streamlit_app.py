@@ -119,8 +119,8 @@ if prompt := st.chat_input(f"{user_name} nhập nội dung cần trao đổi ở
 
     # Gửi yêu cầu đến OpenAI API
     if not st.session_state.messages or not isinstance(st.session_state.messages, list): #đoạn kiểm tra trước khi gửi API
-    st.error("Lỗi: Danh sách tin nhắn không hợp lệ.")
-    st.stop()
+        st.error("Lỗi: Danh sách tin nhắn không hợp lệ.")  # Hiển thị lỗi
+        st.stop()  # Dừng chương trình nếu dữ liệu không hợp lệ
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[{"role": m["role"], "content": m["content"]} for m in st.session_state.messages],
