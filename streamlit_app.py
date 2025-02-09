@@ -46,7 +46,7 @@ def get_customer_title(ma_kh):
 
 # Trích xuất thông tin nếu MaKH hợp lệ
     
-customer = df_kh[df_kh['MaKH'] == ma_kh.strip()]
+    customer = df_kh[df_kh['MaKH'] == ma_kh.strip()]
     if customer.empty:
         return "Bạn"
     
