@@ -1066,10 +1066,15 @@ Allergy Panel 1 ( bộ dị ứng 91 Dị nguyên )	 1,900,000
 HAV IgG Định lượng	 190,000 
 Echinococcus (Sán Dải Chó) IgG	 145,000 
 Fasciola Sp (Sán Lá Gan Lớn) IgG	 145,000 
+
+
+CÁC GÓI KHÁM SỨC KHỎE
 Khám sức khỏe có liên quan đến ăn uống (Xét nghiệm đàm (BK đàm), KST đường ruột trong phân)	 190,000 
-Khám lái xe 2 bánh, 4 bánh (xét nghiệm nước tiểu: Amphetamin, Marijuana, Morphine, Codein, Heroin)	 250,000 
+Khám lái xe 2 bánh, 4 bánh: Khám lâm sàng, xét nghiệm nước tiểu: Amphetamin, Marijuana, Morphine, Codein, Heroin	Tổng chi phí: 250,000 
 Khám xin việc (Xq tim phổi thẳng, Công thức máu)	 240,000 
 Khám sức khỏe định kỳ 2 - 4 Bánh (xét nghiệm nước tiểu: Amphetamin, Marijuana, Morphine, Codein, Heroin)	 255,000 
+Khám sức khỏe định kỳ gói tiêu chuẩn: khám tổng quát (lâm sàng), Chụp x quang tim phổi, siêu âm bụng tổng quát, đo điện tim. Giảm 10% khi thực hiên gói
+Khám sức khỏe định kỳ gói mở rộng: Giống gói tiêu chuẩn, cộng thêm: siêu âm tim. 
 
 
 
