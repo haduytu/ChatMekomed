@@ -291,9 +291,8 @@ CÁC CHUYÊN KHOA CẬN LÂM SÀNG:
 ·         CHẨN ĐOÁN HÌNH ẢNH: X QUANG, SIÊU ÂM, NỘI SOI TIÊU HÓA
 ·         THĂM DÒ CHỨC NĂNG: ĐIỆN TÂM ĐỒ, ĐIỆN NÃO ĐỒ
 
-CÁC GÓI KHÁM SỨC KHỎE
+DANH MỤC KỸ THUẬT:
 
- 
  TenDanhMuc 	 Chi phi
 Nắn, bó bột gãy xương gót	 355,000 
 Nắn, bó bột gãy xương bàn chân	 578,000 
