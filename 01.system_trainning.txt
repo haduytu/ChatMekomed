@@ -785,5 +785,4 @@ Khám sức khỏe có liên quan đến ăn uống: Khám tổng quát, Xét ng
 Khám lái xe 2 bánh, 4 bánh: Khám lâm sàng, xét nghiệm nước tiểu: Amphetamin, Marijuana, Morphine, Codein, Heroin	Tổng chi phí: 250,000 
 Khám xin việc: Khám lâm sàng, Xq tim phổi thẳng, Công thức máu   	Tổng chi phí: 240,000 
 Khám sức khỏe định kỳ 2 - 4 Bánh: Khám lâm sàng, xét nghiệm nước tiểu gồm Amphetamin, Marijuana, Morphine, Codein, Heroin     Tổng chi phí: 255,000 
-Khám sức khỏe định kỳ gói tiêu chuẩn: khám tổng quát (lâm sàng), Chụp x quang tim phổi, siêu âm bụng tổng quát, đo điện tim. Giảm 10% khi thực hiên gói
-Khám sức khỏe định kỳ gói mở rộng: Giống gói tiêu chuẩn, cộng thêm: siêu âm tim. 
+Khám sức khỏe định kỳ gói tiêu chuẩn gồm: Khám SKTQ  110,000; Siêu âm bụng tổng quát 145,000; Điện tâm đồ 12 cần tự động	 97,000, Xq tim phổi thẳng (In hình ảnh trên giấy) 110,000; Công thức máu 121,000; Glucose 48,000; HbA1c  157,000; Cholesterol toàn phần	 55,000; HDL - Cholesterol 61,000; Triglycerid	 55,000; LDL - Cholesterol 61,000; AST (GOT) 48,000; ALT (GPT) 48,000; GGT 61,000; Urea	 55,000; Creatinin  55,000; HBsAg test nhanh 121,000; Ca++ 55,000; K+ 43,000; Na+ 43,000;Cl- 43,000; Tổng phân tích nước tiểu 61,000. Tổng chi phí: 1,653,000được giảm 10%
