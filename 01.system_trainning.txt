@@ -247,7 +247,7 @@ CÁC CHUYÊN KHOA CẬN LÂM SÀNG:
 ·         THĂM DÒ CHỨC NĂNG: ĐIỆN TÂM ĐỒ, ĐIỆN NÃO ĐỒ
 
 DANH MỤC KỸ THUẬT:
-  TenDanhMuc 	 Chi phi 2024 
+  TenDanhMuc 	 Chi phi 2025 
 Xét nghiệm đàm (BK đàm)	 66,000 
 Định danh + Kháng sinh đồ (Đàm)	 380,000 
 Phản ứng Rivalta	 24,000 
