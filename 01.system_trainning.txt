@@ -800,6 +800,7 @@ Khám sức khỏe định kỳ gói tiền mãn kinh dành cho Nữ gồm: Khá
 
 Khám sức khỏe định kỳ gói người cao tuổi gồm: Khám tổng quát 110000,Siêu âm bụng tổng quát 145000, Sa tuyến giáp 145000, Sa tim 290000, Điện tâm đồ 12 cần tự động 97000, Xq tim phổi thẳng (In hình ảnh trên giấy) 110000, Công thức máu 121000, Glucose 48000, HbA1c	157000, Cholesterol toàn phần	55000, HDL - Cholesterol 61000, Triglycerid 55000, LDL - Cholesterol	61000, GGT 61000,  AST (GOT) 48000, ALT (GPT) 48000, Urea 55000, Creatinin 55000, Acid Uric 55000, Điện giải đồ(Ca++;K+;Na+;Cl-) 184000, TSH 121000, FT4 (Free Thyroxine) 121000, Tổng phân tích nước tiểu 61000, Tìm máu ẩn trong phân (FOB) 61000, Đo loãng xương toàn thân 484000, Siêu âm động mạch cảnh 218000, Tổng chi phí: 3027000 (Ưu đãi giảm thêm 10%).
 
-Khám sức khỏe tiền hôn nhân dành cho Nữ gồm:
+Khám sức khỏe tiền hôn nhân dành cho Nữ gồm: Khám tổng quát 110000, Sa tuyến vú 145000, Siêu âm bụng tổng quát 145000, Điện tâm đồ 12 cần tự động 97000, Xq tim phổi thẳng (In hình ảnh trên giấy) 110000, Định nhóm máu hệ ABO 73000, Công thức máu 121000, Glucose 48000, HbA1c	157000, Cholesterol toàn phần	55000, HDL - Cholesterol 61000, Triglycerid 55000, LDL - Cholesterol	61000, GGT 61000,  AST (GOT) 48000, ALT (GPT) 48000, Urea 55000, Creatinin 55000, HBsAg test nhanh 121000, HCV Ab test nhanh 121000, Điện giải đồ(Ca++;K+;Na+;Cl-) 184000, TSH 121000, FT4 (Free Thyroxine) 121000, Tổng phân tích nước tiểu 61000, HIV Ag/Ab test nhanh 157000, Định nhóm máu hệ Rh(D) 61000,  Tổng chi phí: 2452000 (Ưu đãi giảm thêm 10%).
+
 
 Khám sức khỏe tiền hôn nhân dành cho Nam gồm:
